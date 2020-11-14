@@ -1,0 +1,52 @@
+pricing on AWS as an individual is just too much, just used a shared web server, and see about upgrading to dedicated or vps in the future
+
+
+
+
+
+
+
+
+
+use AWS for the server, python or node.js(preferred), automated trading using its own computing
+maybe have a host webpage for data accessing, account balance, positions, charts, etc
+
+
+aws:
+learn authentication(IAM, VPC-subnets,gateways,access control lists)
+
+compute - lambda
+lambda bypasses needing to engineer load balancing on particular machines(ec2), lambda is a serverless computer
+
+storage - s3, large files, raw data dump, cheap
+storage - rds, relational db, fully managed, try to use s3 if can get away with, not a lot of need for db
+storage - could also use dynamodb for unrelational db stuff, key:pair
+
+probably dont need any backend dev
+
+frontend - cloudfront, cdn, video, serve it quickly(dont need)
+fe - cognito, permission system(prob no need)
+fe - route53, dns, name service
+
+big data - redshift, data warehousing, petabyte level scale, high performance, high avl.(dont need)
+bd - athena, query data on s3, take adv of s3 cheapness, 
+bd - kinesis, put data to a stream, time window, time order events
+
+
+things I think I need:
+s3
+lambda
+route53
+iam
+
+
+https://aws.amazon.com/getting-started/hands-on/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/
+states only need the following for a serverless web app
+lambda
+api gateway
+amplify
+dynamodb
+cognito
+
+possibly codecommit, amazons github
+also need to probably add s3, as market data might be quite large and unwieldy

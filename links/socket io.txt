@@ -1,0 +1,22 @@
+on either server or client:
+
+to send:
+.emit("channel", data);
+
+
+to receive:
+.on("channel", data => {
+	//function here
+});
+
+
+
+server:
+io.on, io.emit
+
+client:
+socket.on, socket.emit
+
+
+
+data auto-updates

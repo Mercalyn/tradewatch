@@ -1,0 +1,45 @@
+body{
+    background-color: rgb(54, 54, 54);
+    color: rgb(168, 168, 168);
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lucida Sans', Verdana, sans-serif;
+}
+p,h4{
+    padding-left: 5px;
+    margin: 2px 4px;
+}
+
+
+#row-container{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    height: 2000px;
+    justify-content: space-between;
+}
+#left-half{
+    width: 300px;
+}
+#right-half{
+    flex-grow: 1;
+}
+#account-info-container{
+    width: 300px;
+}
+
+
+.row-half,.col-half{
+    border: 1px solid black;
+}
+.p-row{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.red-text{
+    color: red;
+}
+.chart{
+    width: 100%;
+    margin: 10px 0px;
+}

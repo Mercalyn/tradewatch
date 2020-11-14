@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Trade Watch</title>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <link rel="stylesheet" type="text/css" href='style.css' />
+    </head>
+    <body>
+        <script src="chart.min.js"></script>
+        
+        <div id="row-container">
+            <!-- ----------- LEFT HALF ----------- -->
+            <div id="left-half" class="row-half">
+                <!-- ----------- ACCOUNT INFO ----------- -->
+                <div id="account-info-container" class="col-half">
+                    <h4>ACCOUNT INFO</h4>
+                    <div class="p-row">
+                        <p>Equity: </p><p class="red-text" id="account-equity">0</p>
+                    </div>
+                    <div class="p-row">
+                        <p>Margin Level:</p><p class="red-text" id="account-marglevel">0</p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- ----------- RIGHT HALF ----------- -->
+            <div id="right-half" class="row-half">
+                <!-- ----------- ACCOUNT INFO ----------- -->
+                <div id="chart-instrument-chooser" class="col-half p-row">
+                    <p>Select Instrument: </p>
+                    <select id="instrument-selection" onchange="instrument_change_handler(this)">
+                    </select>
+                </div>
+                <!-- ----------- GRAB NOW FROM WHEN ----------- -->
+                <div id="chart-now-from-when" class="col-half p-row">
+                    <p>Data to NOW from last: </p>
+                    <button id="button-lweek" onclick="chart_timeframe_handler('lweek')">WEEK</button>
+                    <button id="button-lmonth" onclick="chart_timeframe_handler('lmonth')">MONTH</button>
+                    <button id="button-lseason" onclick="chart_timeframe_handler('lseason')">SEASON</button>
+                    <button id="button-lyear" onclick="chart_timeframe_handler('lyear')">YEAR</button>
+                </div>
+                <!-- ----------- CHART ----------- -->
+                <div id="chart-now-from-when" class="col-half p-row">
+                    <canvas class="chart" id="chart-price"></canvas>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+
+
+</html>

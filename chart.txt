@@ -1,0 +1,30 @@
+chart js
+fill between 2 lines using area line dataset
+stepped middle interpolated
+
+csv file, thinking just for it all data points and indicators,
+separated by instrument pair, and possibly by timescale
+
+
+HTTP Persistent Connection for api
+Connection: Keep-Alive in the header
+
+
+poll account update
+store transactionid to easy poll account
+
+
+
+M10 interval is supported
+144 data pts per day
+4.3k dp per month
+52.5k dp per year
+
+
+for each dp:
+upper bid
+lower bid
+upper ask
+lower ask
+indicators
+order book(future update)

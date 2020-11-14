@@ -1,0 +1,69 @@
+global config.json:
+-watch interval in seconds(should not affect backtesting speed)
+-strat max open positions
+-strat max equity stake
+-strat max leverage, x:1
+-strat min margin level req
+-total list of possible instruments(currency pairs)(as determined in margin spreadsheet)
+-simulation spread delta(dont need this since I'm plotting extreme bids and asks)
+
+
+
+
+output strat charts:
+-average / mean equity change per month
+-
+
+
+output strat nums:
+-min, max, mean of the / ave equity change of all months
+-total ending equity based on 10k
+
+
+indicators:
+-indicators are special because I am not calculating open and closes, only extreme highs and lows. each indicator will probably need 2 versions, a high and a low for a short and long respectively.
+-rsi
+-%bb
+-sma's
+-kvo(thinking not, because pulling volume may be difficult in currency)
+-order book
+
+
+
+other notes:
+-custom quick-render chart based on high and low on both bid and ask. step line charts.
+-db only stores raw data, high low bid ask orderbook, indicators for now are generated clientside to save server resources
+-scale out positions: 1x, 2x, 4x, sma-20, sma-90
+-scale out and close could be same loop, needs stop loss watch as well as its profit taking equivalents
+
+
+
+loop:
+-check mass update, mass indicator data update
+-account financials, if can open any
+-watch:
+	-to open a trade
+	-waiting on open trade
+	-scale out
+	-waiting scale/close trade
+	-close(this is separate until I find a way to concretely flatten positions at the end)
+-microserve html connects for data, charts
+
+
+mass update, connect to last position data, increment by 1 hr candles and return limited number of update data, then loop will repeat it. unix timestamp is used here
+mass update also holds the indicators
+
+
+performance:
+chart performance by setting sampleSize of labels,
+data decimation with min/max preservation is an option
+can also disable line drawing completely if enough data points
+
+
+
+phases:
+0-test local api node js
+1-dl raw data, mass updater 1 hr
+2-filled line chart outputs
+3-strat inputs
+4-live system
